@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formwrapper">
+    <h2 class="title">{{ title }}</h2>
+    <form method="POST" action="/">
+        <div class="form-field">{{ form.ministry_name.label }} {{ form.ministry_name }}</div>
+        {{ form.submit }}
+    </form>
+</div>
+
+{% endblock %}
