@@ -16,4 +16,4 @@ login.login_view = 'login'
 
 socketio = SocketIO(app)
 
-from project import routes, models, events
+from project import routes, models

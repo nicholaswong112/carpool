@@ -3,9 +3,10 @@ from project import db
 
 class Ministry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    ministry_id = db.Column(db.String(20), index=True)
     name = db.Column(db.String(64), index=True)
     password_hash = db.Column(db.String(128))
-    rides = db.relationship('Ride', backref='ministry', lazy=True)
+    rides = db.relationship('Ride', backref='ministry', lazy='dynamic')
 
     def __repr__(self):
         return '<Ministry> {}'.format(self.name)
@@ -21,7 +22,7 @@ class Ride(db.Model):
     driver_addr = db.Column(db.String(64))
     driver_phone = db.Column(db.String(16))
     open_seats = db.Column(db.Integer)
-    passengers = db.relationship('Passenger', backref='ride', lazy=True)
+    passengers = db.relationship('Passenger', backref='ride', lazy='dynamic')
 
     def __repr__(self):
         return '<Ride> {} {} {} {}'.format(self.ministry_id, self.dest, self.date, self.driver_name)
