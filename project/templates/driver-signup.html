@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formwrapper">
+    <h2 class="title">{{ title }}</h2>
+    <form method="POST" action="/">
+        <div class="form-field">{{ form.driver_name.label }} {{ form.driver_namea }}</div>
+        <div class="form-field">{{ form.date.label }} {{ form.date }}</div>
+        <div class="form-field">{{ form.time.label }} {{ form.time }}</div>
+        <div class="form-field">{{ form.destination.label }} {{ form.destination }}</div>
+        <div class="form-field">{{ form.contact.label }} {{ form.contact }}</div>
+        <div class="form-field">{{ form.open_seats.label }} {{ form.open_seats }}</div>
+        {{ form.submit }}
+    </form>
+</div>
+
+{% endblock %}

@@ -1,33 +1,32 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% endif %}
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    </head>
-    <body>
-        <div>
-            Spotipy:
-            <a href="{{ url_for('index') }}">Home</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
-            {% else %}
-            <a href="{{ url_for('create_room') }}">Create Room</a>
-            <a href="{{ url_for('find_room') }}">Find Room</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}
+
+<head>
+    <title>{{title}}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">TODO name</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/findministry">Find a Ministry</a>
+                <a class="nav-item nav-link" href="/createministry">Create a Ministry</a>
+            </div>
         </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+    </nav>
+
+    <div class="container">
+        <br>
         {% block content %}{% endblock %}
-    </body>
+        <br>
+    </div>
+</body>
+
 </html>
