@@ -1,14 +1,42 @@
-{% extends "base.html" %}
+<html>
 
-{% block content %}
-    <h1></h1>
-    {% if form %}
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            We have reset the database, so previously created user accounts and rooms have been deleted. 
-        </p>
-        <p>{{ form.submit() }}</p>
+<body>
+    <h1>Add ministry</h1>
+    <form method="POST" action="/ministry">
+        <input type="text" name="name">
+        <input type="submit" value="Add">
     </form>
-    {% endif %}
-{% endblock %}
+
+    <h1>Add ride</h1>
+    <form method="POST" action="/ride">
+        <input type="text" name="ministry_id">
+        <input type="text" name="dest">
+        <input type="text" name="date">
+        <input type="text" name="driver_name">
+        <input type="submit" value="Add">
+    </form>
+
+    <h1>Add passenger</h1>
+    <form method="POST" action="/passenger">
+        <input type="text" name="name">
+        <input type="submit" value="Add">
+    </form>
+
+    <h1>Ministries</h1>
+    {% for m in ministries %}
+    <p>{{m.id}} {{m.name}} {{m.password_hash}} {{m.rides}}</p>
+    {% endfor %}
+
+    <h1>Rides</h1>
+    {% for r in rides %}
+    <p>{{r.id}} {{r.ministy_id}} {{r.dest}} {{r.date}} {{r.driver_name}} {{r.driver_addr}} {{r.driver_phone}}
+        {{r.open_seats}} {{r.passengers}}</p>
+    {% endfor %}
+
+    <h1>Passengers</h1>
+    {% for p in passengers %}
+    <p>{{p.id}} {{p.name}} {{p.addr}} {{p.phone}} {{p.ride_id}}</p>
+    {% endfor %}
+</body>
+
+</html>
