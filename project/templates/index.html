@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1></h1>
+    {% if form %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            We have reset the database, so previously created user accounts and rooms have been deleted. 
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+{% endblock %}

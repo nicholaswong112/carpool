@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Suggest Song</h1>
+    <form action="" method="post" novalidate>
+        {{ find_song_form.hidden_tag() }}
+        <p>
+            {{ find_song_form.user_query.label }}<br>
+            {{ find_song_form.user_query(size=32) }}<br>
+            {% for error in find_song_form.user_query.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ find_song_form.submit1() }}</p>
+    </form><br><br>
+   
+    {% if show %}
+        <form action="" method="post" novalidate>
+            {{ select_song_form.hidden_tag() }}
+            <p>
+                {% for choice in select_song_form.choices %}
+                        <tr>
+                            <td>{{ choice }}
+                                <img src="{{ album_covers[loop.index0] }}" height="40" width="40">
+                                {{ choice.label }} 
+                            </td><br>
+                        </tr>
+                {% endfor %}
+                {% for error in select_song_form.choices.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ select_song_form.submit2() }}</p>
+        </form>
+    {% endif %}
+            
+{% endblock %}

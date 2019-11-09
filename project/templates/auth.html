@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ auth_token }}
+<br>
+{{ token_info }}
+<br>
+{{ access_token }}
+    <script type="text/javascript"> 
+        $(document).ready(function() {
+            window.close()
+        }
+    </script>
+{% endblock %}
