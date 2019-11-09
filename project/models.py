@@ -1,5 +1,6 @@
 from project import db
 
+
 class Ministry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
@@ -8,6 +9,7 @@ class Ministry(db.Model):
 
     def __repr__(self):
         return '<Ministry> {}'.format(self.name)
+
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +25,7 @@ class Ride(db.Model):
 
     def __repr__(self):
         return '<Ride> {} {} {} {}'.format(self.ministry_id, self.dest, self.date, self.driver_name)
+
 
 class Passenger(db.Model):
     id = db.Column(db.Integer, primary_key=True)
