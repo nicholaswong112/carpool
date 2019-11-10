@@ -2,4 +2,22 @@
 
 {% block content %}
 
+<div class="formwrapper">
+    <h2 class="title">Ride Search</h2>
+    <form method="POST" action="">
+        {{ ride_form.hidden_tag() }}
+        <div class="form-field">{{ ride_form.date.label }} {{ ride_form.date }}</div>
+        {{ ride_form.submit }}
+    </form>
+</div>
+
+<div class="formwrapper">
+    <h2 class="title">Drivers</h2>
+    <form method="POST" action="">
+        {{ driver_form.hidden_tag() }}
+        {{ driver_form.submit }}
+    </form>
+</div>
+
+
 {% endblock %}

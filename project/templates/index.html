@@ -2,6 +2,19 @@
 
 {% block content %}
 
-<button action
+<h1>Ministries</h1>
+{% for m in ministries %}
+    <p>{{ m }}</p>
+{% endfor %}
+
+<h1>Rides</h1>
+{% for m in rides %}
+    <p>{{ m }}</p>
+{% endfor %}
+
+<h1>Passengers</h1>
+{% for m in passengers %}
+    <p>{{ m }}</p>
+{% endfor %}
 
 {% endblock %}

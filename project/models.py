@@ -9,7 +9,7 @@ class Ministry(db.Model):
     rides = db.relationship('Ride', backref='ministry', lazy='dynamic')
 
     def __repr__(self):
-        return '<Ministry> {}'.format(self.name)
+        return '<Ministry> {} {}'.format(self.ministry_id, self.name)
 
 
 class Ride(db.Model):
@@ -25,7 +25,7 @@ class Ride(db.Model):
     passengers = db.relationship('Passenger', backref='ride', lazy='dynamic')
 
     def __repr__(self):
-        return '<Ride> {} {} {} {}'.format(self.ministry_id, self.dest, self.date, self.driver_name)
+        return '<Ride> {} {} {} {} {} {}'.format(self.id, self.ministry_id, self.dest, self.date, self.driver_name, self.open_seats)
 
 
 class Passenger(db.Model):
@@ -36,4 +36,4 @@ class Passenger(db.Model):
     ride_id = db.Column(db.Integer, db.ForeignKey('ride.id'))
 
     def __repr__(self):
-        return '<Passenger> {}'.format(self.name)
+        return '<Passenger> {} {}'.format(self.name, self.ride_id)

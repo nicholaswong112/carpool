@@ -4,12 +4,14 @@
 
 <div class="formwrapper">
     <h2 class="title">{{ title }}</h2>
-    <form method="POST" action="/">
-        <div class="form-field">{{ form.driver_name.label }} {{ form.driver_namea }}</div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-field">{{ form.driver_name.label }} {{ form.driver_name }}</div>
+        <div class="form-field">{{ form.driver_phone.label }} {{ form.driver_phone }}</div>
+        <div class="form-field">{{ form.driver_addr.label }} {{ form.driver_addr }}</div>
         <div class="form-field">{{ form.date.label }} {{ form.date }}</div>
         <div class="form-field">{{ form.time.label }} {{ form.time }}</div>
-        <div class="form-field">{{ form.destination.label }} {{ form.destination }}</div>
-        <div class="form-field">{{ form.contact.label }} {{ form.contact }}</div>
+        <div class="form-field">{{ form.dest.label }} {{ form.dest }}</div>
         <div class="form-field">{{ form.open_seats.label }} {{ form.open_seats }}</div>
         {{ form.submit }}
     </form>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formwrapper">
+    <h2 class="title">{{ title }}</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-field">{{ form.passenger_name.label }} {{ form.passenger_name }}</div>
+        <div class="form-field">{{ form.passenger_phone.label }} {{ form.passenger_phone }}</div>
+        <div class="form-field">{{ form.passenger_addr.label }} {{ form.passenger_addr }}</div>
+        {{ form.submit }}
+    </form>
+</div>
+
+{% endblock %}

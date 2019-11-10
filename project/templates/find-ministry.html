@@ -4,7 +4,8 @@
 
 <div class="formwrapper">
     <h2 class="title">{{ title }}</h2>
-    <form method="POST" action="/">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
         <div class="form-field">{{ form.ministry_id.label }} {{ form.ministry_id }}</div>
         {{ form.submit }}
     </form>

@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SelectField, SubmitField, TextAreaField, DateField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, EqualTo, Length, NumberRange
-from project.models import User, Song, Ministry, List
+from project.models import Ministry, Ride, Passenger
 
 
 class CreateMinistryForm(FlaskForm):
-    ministry_name = StringField('Ministry Name', validators=[DataRequired(), Length(max=30)])
+    ministry_name = StringField('Ministry Name')#, validators=[DataRequired(), Length(max=30)])
     submit = SubmitField('Create Ministry')
 
 
@@ -29,16 +29,16 @@ class DriverSignupForm(FlaskForm):
     driver_name = StringField('Name', validators=[DataRequired(), Length(max=30)])
     driver_addr = StringField('Driver Address', validators=[DataRequired()])
     driver_phone = StringField('Driver Phone Number', validators=[DataRequired(), Length(max=30)])
-    date = DateField('Date', validators=[DataRequired()])
+    date = DateField('Date (YYYY-MM-DD)', validators=[DataRequired()])
     time = StringField('Time', validators=[DataRequired(), Length(max=30)])
-    destination = StringField('Destination', validators=[DataRequired()])
-    open_seats = IntegerField('Open Seats', validators[DataRequired(), NumberRange(min=1)])
+    dest = StringField('Destination', validators=[DataRequired()])
+    open_seats = IntegerField('Open Seats', validators=[DataRequired(), NumberRange(min=1)])
     submit = SubmitField('Sign Up')
 
 
 class RideDisplayForm(FlaskForm):
-    driver_details = RadioField('Driver Details', coerce=unicode, validators=[DataRequired()])
-    submit - SubmitField('Sign Up')
+    ride_details = SelectField('Ride details', coerce=int, validators=[DataRequired()])
+    submit = SubmitField('Sign Up')
 
 
 class PassengerSignupForm(FlaskForm):

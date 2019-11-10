@@ -3,12 +3,14 @@
 {% block content %}
 
 <div class="formwrapper">
-    <h2 class="title">{{ title }}</h2>
+    <h2 class="title">Ride Selection</h2>
     <form method="POST" action="">
         {{ form.hidden_tag() }}
-        <div class="form-field">{{ form.ministry_id.label }} {{ form.ministry_id }}</div>
+        <div class="form-field">{{ form.ride_details.label }} {{ form.ride_details }}</div>
         {{ form.submit }}
     </form>
 </div>
+
+
 
 {% endblock %}
